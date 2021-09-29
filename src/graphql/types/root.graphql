@@ -1,0 +1,14 @@
+extend type Query {
+  me: Test
+  branch: String
+}
+
+# external
+extend type Facility @key(fields: "id") {
+  id: Int! @external
+  branch: String
+}
+
+type Test {
+  facility: Facility
+}

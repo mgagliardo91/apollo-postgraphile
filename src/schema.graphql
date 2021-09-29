@@ -1,0 +1,1628 @@
+directive @external on FIELD_DEFINITION
+
+directive @key(fields: _FieldSet!) on INTERFACE | OBJECT
+
+directive @provides(fields: _FieldSet!) on FIELD_DEFINITION
+
+directive @requires(fields: _FieldSet!) on FIELD_DEFINITION
+
+"""All input for the create `Extension` mutation."""
+input CreateExtensionInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Extension` to be created by this mutation."""
+  extension: ExtensionInput!
+}
+
+"""The output of our create `Extension` mutation."""
+type CreateExtensionPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Extension` that was created by this mutation."""
+  extension: Extension
+
+  """An edge for our `Extension`. May be used by Relay 1."""
+  extensionEdge(
+    """The method to use when ordering `Extension`."""
+    orderBy: [ExtensionsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ExtensionsEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""All input for the create `Facility` mutation."""
+input CreateFacilityInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Facility` to be created by this mutation."""
+  facility: FacilityInput!
+}
+
+"""The output of our create `Facility` mutation."""
+type CreateFacilityPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Facility` that was created by this mutation."""
+  facility: Facility
+
+  """An edge for our `Facility`. May be used by Relay 1."""
+  facilityEdge(
+    """The method to use when ordering `Facility`."""
+    orderBy: [FacilitiesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): FacilitiesEdge
+
+  """Reads a single `Organization` that is related to this `Facility`."""
+  organization: Organization
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""All input for the create `Organization` mutation."""
+input CreateOrganizationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Organization` to be created by this mutation."""
+  organization: OrganizationInput!
+}
+
+"""The output of our create `Organization` mutation."""
+type CreateOrganizationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Organization` that was created by this mutation."""
+  organization: Organization
+
+  """An edge for our `Organization`. May be used by Relay 1."""
+  organizationEdge(
+    """The method to use when ordering `Organization`."""
+    orderBy: [OrganizationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): OrganizationsEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""A location in a connection that can be used for resuming pagination."""
+scalar Cursor
+
+"""
+A point in time as described by the [ISO
+8601](https://en.wikipedia.org/wiki/ISO_8601) standard. May or may not include a timezone.
+"""
+scalar Datetime
+
+"""
+A filter to be used against Datetime fields. All fields are combined with a logical ‘and.’
+"""
+input DatetimeFilter {
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Datetime
+
+  """Equal to the specified value."""
+  equalTo: Datetime
+
+  """Greater than the specified value."""
+  greaterThan: Datetime
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Datetime
+
+  """Included in the specified list."""
+  in: [Datetime!]
+
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Less than the specified value."""
+  lessThan: Datetime
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Datetime
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Datetime
+
+  """Not equal to the specified value."""
+  notEqualTo: Datetime
+
+  """Not included in the specified list."""
+  notIn: [Datetime!]
+}
+
+"""All input for the `deleteExtensionByName` mutation."""
+input DeleteExtensionByNameInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  name: String!
+}
+
+"""All input for the `deleteExtensionByNodeId` mutation."""
+input DeleteExtensionByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Extension` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteExtension` mutation."""
+input DeleteExtensionInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The primary unique identifier for the extension."""
+  id: Int!
+}
+
+"""The output of our delete `Extension` mutation."""
+type DeleteExtensionPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedExtensionNodeId: ID
+
+  """The `Extension` that was deleted by this mutation."""
+  extension: Extension
+
+  """An edge for our `Extension`. May be used by Relay 1."""
+  extensionEdge(
+    """The method to use when ordering `Extension`."""
+    orderBy: [ExtensionsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ExtensionsEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""All input for the `deleteFacilityByNodeId` mutation."""
+input DeleteFacilityByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Facility` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteFacilityBySlug` mutation."""
+input DeleteFacilityBySlugInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The facility’s slug."""
+  slug: String!
+}
+
+"""All input for the `deleteFacility` mutation."""
+input DeleteFacilityInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The primary unique identifier for the facility."""
+  id: Int!
+}
+
+"""The output of our delete `Facility` mutation."""
+type DeleteFacilityPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedFacilityNodeId: ID
+
+  """The `Facility` that was deleted by this mutation."""
+  facility: Facility
+
+  """An edge for our `Facility`. May be used by Relay 1."""
+  facilityEdge(
+    """The method to use when ordering `Facility`."""
+    orderBy: [FacilitiesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): FacilitiesEdge
+
+  """Reads a single `Organization` that is related to this `Facility`."""
+  organization: Organization
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""All input for the `deleteOrganizationByNodeId` mutation."""
+input DeleteOrganizationByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Organization` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteOrganizationBySlug` mutation."""
+input DeleteOrganizationBySlugInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The org’s slug."""
+  slug: String!
+}
+
+"""All input for the `deleteOrganization` mutation."""
+input DeleteOrganizationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The primary unique identifier for the org."""
+  id: Int!
+}
+
+"""The output of our delete `Organization` mutation."""
+type DeleteOrganizationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedOrganizationNodeId: ID
+
+  """The `Organization` that was deleted by this mutation."""
+  organization: Organization
+
+  """An edge for our `Organization`. May be used by Relay 1."""
+  organizationEdge(
+    """The method to use when ordering `Organization`."""
+    orderBy: [OrganizationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): OrganizationsEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""A schema extension."""
+type Extension implements Node {
+  """The time this extension was created."""
+  createdAt: Datetime
+
+  """The primary unique identifier for the extension."""
+  id: Int!
+  name: String!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+
+  """The extension’s schema."""
+  schema: String!
+
+  """The time this extension was updated."""
+  updatedAt: Datetime
+}
+
+"""
+A condition to be used against `Extension` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input ExtensionCondition {
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+
+  """Checks for equality with the object’s `schema` field."""
+  schema: String
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+}
+
+"""
+A filter to be used against `Extension` object types. All fields are combined with a logical ‘and.’
+"""
+input ExtensionFilter {
+  """Checks for all expressions in this list."""
+  and: [ExtensionFilter!]
+
+  """Filter by the object’s `createdAt` field."""
+  createdAt: DatetimeFilter
+
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Negates the expression."""
+  not: ExtensionFilter
+
+  """Checks for any expressions in this list."""
+  or: [ExtensionFilter!]
+
+  """Filter by the object’s `schema` field."""
+  schema: StringFilter
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+}
+
+"""An input for mutations affecting `Extension`"""
+input ExtensionInput {
+  """The time this extension was created."""
+  createdAt: Datetime
+
+  """The primary unique identifier for the extension."""
+  id: Int
+  name: String!
+
+  """The extension’s schema."""
+  schema: String!
+
+  """The time this extension was updated."""
+  updatedAt: Datetime
+}
+
+"""
+Represents an update to a `Extension`. Fields that are set will be updated.
+"""
+input ExtensionPatch {
+  """The time this extension was created."""
+  createdAt: Datetime
+
+  """The primary unique identifier for the extension."""
+  id: Int
+  name: String
+
+  """The extension’s schema."""
+  schema: String
+
+  """The time this extension was updated."""
+  updatedAt: Datetime
+}
+
+"""A connection to a list of `Extension` values."""
+type ExtensionsConnection {
+  """
+  A list of edges which contains the `Extension` and cursor to aid in pagination.
+  """
+  edges: [ExtensionsEdge!]!
+
+  """A list of `Extension` objects."""
+  nodes: [Extension!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Extension` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Extension` edge in the connection."""
+type ExtensionsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Extension` at the end of the edge."""
+  node: Extension!
+}
+
+"""Methods to use when ordering `Extension`."""
+enum ExtensionsOrderBy {
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  ID_ASC
+  ID_DESC
+  NAME_ASC
+  NAME_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  SCHEMA_ASC
+  SCHEMA_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+}
+
+"""A connection to a list of `Facility` values."""
+type FacilitiesConnection {
+  """
+  A list of edges which contains the `Facility` and cursor to aid in pagination.
+  """
+  edges: [FacilitiesEdge!]!
+
+  """A list of `Facility` objects."""
+  nodes: [Facility!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Facility` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Facility` edge in the connection."""
+type FacilitiesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Facility` at the end of the edge."""
+  node: Facility!
+}
+
+"""Methods to use when ordering `Facility`."""
+enum FacilitiesOrderBy {
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  ID_ASC
+  ID_DESC
+  NAME_ASC
+  NAME_DESC
+  NATURAL
+  ORGANIZATION_ID_ASC
+  ORGANIZATION_ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  SLUG_ASC
+  SLUG_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+}
+
+"""A facility."""
+type Facility implements Node {
+  """The time this facility was created."""
+  createdAt: Datetime
+
+  """The primary unique identifier for the facility."""
+  id: Int!
+
+  """The facility’s name."""
+  name: String!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+
+  """Reads a single `Organization` that is related to this `Facility`."""
+  organization: Organization
+
+  """The facility’s associated organization."""
+  organizationId: Int!
+
+  """The facility’s slug."""
+  slug: String!
+
+  """The time this facility was updated."""
+  updatedAt: Datetime
+}
+
+"""
+A condition to be used against `Facility` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input FacilityCondition {
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+
+  """Checks for equality with the object’s `organizationId` field."""
+  organizationId: Int
+
+  """Checks for equality with the object’s `slug` field."""
+  slug: String
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+}
+
+"""
+A filter to be used against `Facility` object types. All fields are combined with a logical ‘and.’
+"""
+input FacilityFilter {
+  """Checks for all expressions in this list."""
+  and: [FacilityFilter!]
+
+  """Filter by the object’s `createdAt` field."""
+  createdAt: DatetimeFilter
+
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Negates the expression."""
+  not: FacilityFilter
+
+  """Checks for any expressions in this list."""
+  or: [FacilityFilter!]
+
+  """Filter by the object’s `organizationId` field."""
+  organizationId: IntFilter
+
+  """Filter by the object’s `slug` field."""
+  slug: StringFilter
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+}
+
+"""An input for mutations affecting `Facility`"""
+input FacilityInput {
+  """The time this facility was created."""
+  createdAt: Datetime
+
+  """The primary unique identifier for the facility."""
+  id: Int
+
+  """The facility’s name."""
+  name: String!
+
+  """The facility’s associated organization."""
+  organizationId: Int!
+
+  """The facility’s slug."""
+  slug: String!
+
+  """The time this facility was updated."""
+  updatedAt: Datetime
+}
+
+"""
+Represents an update to a `Facility`. Fields that are set will be updated.
+"""
+input FacilityPatch {
+  """The time this facility was created."""
+  createdAt: Datetime
+
+  """The primary unique identifier for the facility."""
+  id: Int
+
+  """The facility’s name."""
+  name: String
+
+  """The facility’s associated organization."""
+  organizationId: Int
+
+  """The facility’s slug."""
+  slug: String
+
+  """The time this facility was updated."""
+  updatedAt: Datetime
+}
+
+"""
+A filter to be used against Int fields. All fields are combined with a logical ‘and.’
+"""
+input IntFilter {
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Int
+
+  """Equal to the specified value."""
+  equalTo: Int
+
+  """Greater than the specified value."""
+  greaterThan: Int
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Int
+
+  """Included in the specified list."""
+  in: [Int!]
+
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Less than the specified value."""
+  lessThan: Int
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Int
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Int
+
+  """Not equal to the specified value."""
+  notEqualTo: Int
+
+  """Not included in the specified list."""
+  notIn: [Int!]
+}
+
+"""
+The root mutation type which contains root level fields which mutate data.
+"""
+type Mutation {
+  """Creates a single `Extension`."""
+  createExtension(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateExtensionInput!
+  ): CreateExtensionPayload
+
+  """Creates a single `Facility`."""
+  createFacility(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateFacilityInput!
+  ): CreateFacilityPayload
+
+  """Creates a single `Organization`."""
+  createOrganization(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateOrganizationInput!
+  ): CreateOrganizationPayload
+
+  """Deletes a single `Extension` using a unique key."""
+  deleteExtension(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteExtensionInput!
+  ): DeleteExtensionPayload
+
+  """Deletes a single `Extension` using a unique key."""
+  deleteExtensionByName(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteExtensionByNameInput!
+  ): DeleteExtensionPayload
+
+  """Deletes a single `Extension` using its globally unique id."""
+  deleteExtensionByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteExtensionByNodeIdInput!
+  ): DeleteExtensionPayload
+
+  """Deletes a single `Facility` using a unique key."""
+  deleteFacility(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteFacilityInput!
+  ): DeleteFacilityPayload
+
+  """Deletes a single `Facility` using its globally unique id."""
+  deleteFacilityByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteFacilityByNodeIdInput!
+  ): DeleteFacilityPayload
+
+  """Deletes a single `Facility` using a unique key."""
+  deleteFacilityBySlug(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteFacilityBySlugInput!
+  ): DeleteFacilityPayload
+
+  """Deletes a single `Organization` using a unique key."""
+  deleteOrganization(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteOrganizationInput!
+  ): DeleteOrganizationPayload
+
+  """Deletes a single `Organization` using its globally unique id."""
+  deleteOrganizationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteOrganizationByNodeIdInput!
+  ): DeleteOrganizationPayload
+
+  """Deletes a single `Organization` using a unique key."""
+  deleteOrganizationBySlug(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteOrganizationBySlugInput!
+  ): DeleteOrganizationPayload
+
+  """Updates a single `Extension` using a unique key and a patch."""
+  updateExtension(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateExtensionInput!
+  ): UpdateExtensionPayload
+
+  """Updates a single `Extension` using a unique key and a patch."""
+  updateExtensionByName(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateExtensionByNameInput!
+  ): UpdateExtensionPayload
+
+  """Updates a single `Extension` using its globally unique id and a patch."""
+  updateExtensionByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateExtensionByNodeIdInput!
+  ): UpdateExtensionPayload
+
+  """Updates a single `Facility` using a unique key and a patch."""
+  updateFacility(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateFacilityInput!
+  ): UpdateFacilityPayload
+
+  """Updates a single `Facility` using its globally unique id and a patch."""
+  updateFacilityByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateFacilityByNodeIdInput!
+  ): UpdateFacilityPayload
+
+  """Updates a single `Facility` using a unique key and a patch."""
+  updateFacilityBySlug(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateFacilityBySlugInput!
+  ): UpdateFacilityPayload
+
+  """Updates a single `Organization` using a unique key and a patch."""
+  updateOrganization(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateOrganizationInput!
+  ): UpdateOrganizationPayload
+
+  """
+  Updates a single `Organization` using its globally unique id and a patch.
+  """
+  updateOrganizationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateOrganizationByNodeIdInput!
+  ): UpdateOrganizationPayload
+
+  """Updates a single `Organization` using a unique key and a patch."""
+  updateOrganizationBySlug(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateOrganizationBySlugInput!
+  ): UpdateOrganizationPayload
+}
+
+"""An object with a globally unique `ID`."""
+interface Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+}
+
+"""An organization."""
+type Organization implements Node {
+  """The time this org was created."""
+  createdAt: Datetime
+
+  """Reads and enables pagination through a set of `Facility`."""
+  facilities(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: FacilityCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FacilityFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `Facility`."""
+    orderBy: [FacilitiesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): FacilitiesConnection!
+
+  """The primary unique identifier for the org."""
+  id: Int!
+
+  """The org’s name."""
+  name: String!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+
+  """The org’s slug."""
+  slug: String!
+
+  """The time this org was updated."""
+  updatedAt: Datetime
+}
+
+"""
+A condition to be used against `Organization` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input OrganizationCondition {
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+
+  """Checks for equality with the object’s `slug` field."""
+  slug: String
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+}
+
+"""
+A filter to be used against `Organization` object types. All fields are combined with a logical ‘and.’
+"""
+input OrganizationFilter {
+  """Checks for all expressions in this list."""
+  and: [OrganizationFilter!]
+
+  """Filter by the object’s `createdAt` field."""
+  createdAt: DatetimeFilter
+
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Negates the expression."""
+  not: OrganizationFilter
+
+  """Checks for any expressions in this list."""
+  or: [OrganizationFilter!]
+
+  """Filter by the object’s `slug` field."""
+  slug: StringFilter
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+}
+
+"""An input for mutations affecting `Organization`"""
+input OrganizationInput {
+  """The time this org was created."""
+  createdAt: Datetime
+
+  """The primary unique identifier for the org."""
+  id: Int
+
+  """The org’s name."""
+  name: String!
+
+  """The org’s slug."""
+  slug: String!
+
+  """The time this org was updated."""
+  updatedAt: Datetime
+}
+
+"""
+Represents an update to a `Organization`. Fields that are set will be updated.
+"""
+input OrganizationPatch {
+  """The time this org was created."""
+  createdAt: Datetime
+
+  """The primary unique identifier for the org."""
+  id: Int
+
+  """The org’s name."""
+  name: String
+
+  """The org’s slug."""
+  slug: String
+
+  """The time this org was updated."""
+  updatedAt: Datetime
+}
+
+"""A connection to a list of `Organization` values."""
+type OrganizationsConnection {
+  """
+  A list of edges which contains the `Organization` and cursor to aid in pagination.
+  """
+  edges: [OrganizationsEdge!]!
+
+  """A list of `Organization` objects."""
+  nodes: [Organization!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Organization` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Organization` edge in the connection."""
+type OrganizationsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Organization` at the end of the edge."""
+  node: Organization!
+}
+
+"""Methods to use when ordering `Organization`."""
+enum OrganizationsOrderBy {
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  ID_ASC
+  ID_DESC
+  NAME_ASC
+  NAME_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  SLUG_ASC
+  SLUG_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: Cursor
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: Cursor
+}
+
+"""The root query type which gives access points into the data universe."""
+type Query {
+  """
+  Fetches a list of entities using their representations; used for Apollo
+  Federation.
+  """
+  _entities(representations: [_Any!]!): [_Entity]! @deprecated(reason: "Only Apollo Federation should use this")
+
+  """
+  Entrypoint for Apollo Federation to determine more information about
+  this service.
+  """
+  _service: _Service! @deprecated(reason: "Only Apollo Federation should use this")
+  extension(id: Int!): Extension
+  extensionByName(name: String!): Extension
+
+  """Reads a single `Extension` using its globally unique `ID`."""
+  extensionByNodeId(
+    """The globally unique `ID` to be used in selecting a single `Extension`."""
+    nodeId: ID!
+  ): Extension
+
+  """Reads and enables pagination through a set of `Extension`."""
+  extensions(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ExtensionCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ExtensionFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `Extension`."""
+    orderBy: [ExtensionsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ExtensionsConnection
+
+  """Reads and enables pagination through a set of `Facility`."""
+  facilities(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: FacilityCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FacilityFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `Facility`."""
+    orderBy: [FacilitiesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): FacilitiesConnection
+  facility(id: Int!): Facility
+
+  """Reads a single `Facility` using its globally unique `ID`."""
+  facilityByNodeId(
+    """The globally unique `ID` to be used in selecting a single `Facility`."""
+    nodeId: ID!
+  ): Facility
+  facilityBySlug(slug: String!): Facility
+  organization(id: Int!): Organization
+
+  """Reads a single `Organization` using its globally unique `ID`."""
+  organizationByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `Organization`.
+    """
+    nodeId: ID!
+  ): Organization
+  organizationBySlug(slug: String!): Organization
+
+  """Reads and enables pagination through a set of `Organization`."""
+  organizations(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: OrganizationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: OrganizationFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `Organization`."""
+    orderBy: [OrganizationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): OrganizationsConnection
+}
+
+"""
+A filter to be used against String fields. All fields are combined with a logical ‘and.’
+"""
+input StringFilter {
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: String
+
+  """
+  Not equal to the specified value, treating null like an ordinary value (case-insensitive).
+  """
+  distinctFromInsensitive: String
+
+  """Ends with the specified string (case-sensitive)."""
+  endsWith: String
+
+  """Ends with the specified string (case-insensitive)."""
+  endsWithInsensitive: String
+
+  """Equal to the specified value."""
+  equalTo: String
+
+  """Equal to the specified value (case-insensitive)."""
+  equalToInsensitive: String
+
+  """Greater than the specified value."""
+  greaterThan: String
+
+  """Greater than the specified value (case-insensitive)."""
+  greaterThanInsensitive: String
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: String
+
+  """Greater than or equal to the specified value (case-insensitive)."""
+  greaterThanOrEqualToInsensitive: String
+
+  """Included in the specified list."""
+  in: [String!]
+
+  """Included in the specified list (case-insensitive)."""
+  inInsensitive: [String!]
+
+  """Contains the specified string (case-sensitive)."""
+  includes: String
+
+  """Contains the specified string (case-insensitive)."""
+  includesInsensitive: String
+
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Less than the specified value."""
+  lessThan: String
+
+  """Less than the specified value (case-insensitive)."""
+  lessThanInsensitive: String
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: String
+
+  """Less than or equal to the specified value (case-insensitive)."""
+  lessThanOrEqualToInsensitive: String
+
+  """
+  Matches the specified pattern (case-sensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  like: String
+
+  """
+  Matches the specified pattern (case-insensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  likeInsensitive: String
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: String
+
+  """
+  Equal to the specified value, treating null like an ordinary value (case-insensitive).
+  """
+  notDistinctFromInsensitive: String
+
+  """Does not end with the specified string (case-sensitive)."""
+  notEndsWith: String
+
+  """Does not end with the specified string (case-insensitive)."""
+  notEndsWithInsensitive: String
+
+  """Not equal to the specified value."""
+  notEqualTo: String
+
+  """Not equal to the specified value (case-insensitive)."""
+  notEqualToInsensitive: String
+
+  """Not included in the specified list."""
+  notIn: [String!]
+
+  """Not included in the specified list (case-insensitive)."""
+  notInInsensitive: [String!]
+
+  """Does not contain the specified string (case-sensitive)."""
+  notIncludes: String
+
+  """Does not contain the specified string (case-insensitive)."""
+  notIncludesInsensitive: String
+
+  """
+  Does not match the specified pattern (case-sensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  notLike: String
+
+  """
+  Does not match the specified pattern (case-insensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  notLikeInsensitive: String
+
+  """Does not start with the specified string (case-sensitive)."""
+  notStartsWith: String
+
+  """Does not start with the specified string (case-insensitive)."""
+  notStartsWithInsensitive: String
+
+  """Starts with the specified string (case-sensitive)."""
+  startsWith: String
+
+  """Starts with the specified string (case-insensitive)."""
+  startsWithInsensitive: String
+}
+
+"""All input for the `updateExtensionByName` mutation."""
+input UpdateExtensionByNameInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  name: String!
+
+  """
+  An object where the defined keys will be set on the `Extension` being updated.
+  """
+  patch: ExtensionPatch!
+}
+
+"""All input for the `updateExtensionByNodeId` mutation."""
+input UpdateExtensionByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Extension` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Extension` being updated.
+  """
+  patch: ExtensionPatch!
+}
+
+"""All input for the `updateExtension` mutation."""
+input UpdateExtensionInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The primary unique identifier for the extension."""
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `Extension` being updated.
+  """
+  patch: ExtensionPatch!
+}
+
+"""The output of our update `Extension` mutation."""
+type UpdateExtensionPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Extension` that was updated by this mutation."""
+  extension: Extension
+
+  """An edge for our `Extension`. May be used by Relay 1."""
+  extensionEdge(
+    """The method to use when ordering `Extension`."""
+    orderBy: [ExtensionsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ExtensionsEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""All input for the `updateFacilityByNodeId` mutation."""
+input UpdateFacilityByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Facility` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Facility` being updated.
+  """
+  patch: FacilityPatch!
+}
+
+"""All input for the `updateFacilityBySlug` mutation."""
+input UpdateFacilityBySlugInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Facility` being updated.
+  """
+  patch: FacilityPatch!
+
+  """The facility’s slug."""
+  slug: String!
+}
+
+"""All input for the `updateFacility` mutation."""
+input UpdateFacilityInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The primary unique identifier for the facility."""
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `Facility` being updated.
+  """
+  patch: FacilityPatch!
+}
+
+"""The output of our update `Facility` mutation."""
+type UpdateFacilityPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Facility` that was updated by this mutation."""
+  facility: Facility
+
+  """An edge for our `Facility`. May be used by Relay 1."""
+  facilityEdge(
+    """The method to use when ordering `Facility`."""
+    orderBy: [FacilitiesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): FacilitiesEdge
+
+  """Reads a single `Organization` that is related to this `Facility`."""
+  organization: Organization
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""All input for the `updateOrganizationByNodeId` mutation."""
+input UpdateOrganizationByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Organization` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Organization` being updated.
+  """
+  patch: OrganizationPatch!
+}
+
+"""All input for the `updateOrganizationBySlug` mutation."""
+input UpdateOrganizationBySlugInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Organization` being updated.
+  """
+  patch: OrganizationPatch!
+
+  """The org’s slug."""
+  slug: String!
+}
+
+"""All input for the `updateOrganization` mutation."""
+input UpdateOrganizationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The primary unique identifier for the org."""
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `Organization` being updated.
+  """
+  patch: OrganizationPatch!
+}
+
+"""The output of our update `Organization` mutation."""
+type UpdateOrganizationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Organization` that was updated by this mutation."""
+  organization: Organization
+
+  """An edge for our `Organization`. May be used by Relay 1."""
+  organizationEdge(
+    """The method to use when ordering `Organization`."""
+    orderBy: [OrganizationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): OrganizationsEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+scalar _Any
+
+"""A union of all federated types (those that use the @key directive)."""
+union _Entity = Extension | Facility | Organization
+
+"""
+Used to represent a set of fields. Grammatically, a field set is a
+selection set minus the braces.
+"""
+scalar _FieldSet
+
+"""Describes our federated service."""
+type _Service {
+  """
+  The GraphQL Schema Language definiton of our endpoint including the
+  Apollo Federation directives (but not their definitions or the special
+  Apollo Federation fields).
+  """
+  sdl: String @deprecated(reason: "Only Apollo Federation should use this")
+}

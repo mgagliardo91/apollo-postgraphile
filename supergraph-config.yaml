@@ -1,0 +1,9 @@
+subgraphs:
+  pg:
+    routing_url: http://localhost:3001/graphql
+    schema:
+      subgraph_url: http://localhost:3001/graphql
+  apollo:
+    routing_url: http://localhost:3002/graphql
+    schema:
+      subgraph_url: http://localhost:3002/graphql
